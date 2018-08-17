@@ -1,33 +1,31 @@
-AngularJS1 Directive Controller Demo
-====================================
+AngularJS1 Directive Compile Controller Param Types Demo
+========================================================
 
-Define a directive with controller, in [AngularJS1](https://angularjs.org/).
+For a directive in [AngularJS1](https://angularjs.org/),
+
+```
+compile: function (tElement, tAttrs)
+controller: function ($scope, $element, $attrs)
+```
+
+What's the types of the params? Are the same types with different names (e.g. `tElement/$element`)?
+
+Run:
 
 ```
 npm install
 open index.html
 ```
 
-![demo](./images/demo.jpg)
+`xElement`:
 
-`controller` is like normal angular controller, but you can get `$element` and `$attrs` to interact with the DOM.
+![element](./images/element.jpg)
 
-Traps in the code
------------------
+We can see `tElement/iElement/$element` are same object.
 
-### `app.directive('helloTo'`
+![attrs](./images/attrs.jpg)
 
-The directive name must be camelCases, e.g. `helloTo`
-
-If you use other formats, e.g. `hello-to`, it will be ignored, silently.
-
-### `$element` is instance of JQLite
-
-See: https://docs.angularjs.org/api/ng/function/angular.element#angularjs-s-jqlite
-
-### The api is quite complex
-
-Just see <https://docs.angularjs.org/api/ng/service/$compile#directive-definition-object>.
+`tAttrs/iAttrs/$attrs` are same object.
 
 Resources
 ---------
